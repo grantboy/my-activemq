@@ -265,7 +265,6 @@
     <module>assembly</module>
     <module>activemq-log4j-appender</module>
     <module>activemq-http</module>
-      <module>udt</module>
   </modules>
 
   <scm>
