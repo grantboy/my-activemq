@@ -84,6 +84,11 @@
       <artifactId>slf4j-log4j12</artifactId>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.apache.activemq</groupId>
+          <artifactId>loginfo</artifactId>
+          <version>5.14.4-SNAPSHOT</version>
+      </dependency>
 
   </dependencies>
 

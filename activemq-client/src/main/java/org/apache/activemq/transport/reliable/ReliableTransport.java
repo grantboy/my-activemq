@@ -44,7 +44,7 @@ public class ReliableTransport extends ResponseCorrelator {
     private ReplayStrategy replayStrategy;
     private final SortedSet<Command> commands = new TreeSet<Command>(new CommandIdComparator());
     private int expectedCounter = 1;
-    private int replayBufferCommandCount = 50;
+    private int replayBufferCommandCount = 1000;
     private int requestTimeout = 2000;
     private ReplayBuffer replayBuffer;
     private Replayer replayer;

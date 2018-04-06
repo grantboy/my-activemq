@@ -23,6 +23,7 @@ import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
+import org.apache.activemq.StackLogger;
 import org.apache.activemq.command.Command;
 import org.apache.activemq.command.Endpoint;
 import org.apache.activemq.command.LastPartialCommand;
@@ -233,6 +234,9 @@ public class CommandDatagramChannel extends CommandChannelSupport {
         ReplayBuffer bufferCache = getReplayBuffer();
         if (bufferCache != null && !redelivery) {
             bufferCache.addBuffer(commandId, writeBuffer);
+        }else{
+            LOG.warn("bufferCache:{}. redelivery:{}.", bufferCache, redelivery);
+            StackLogger.logStack(LOG, 8, "warn");
         }
 
         writeBuffer.flip();

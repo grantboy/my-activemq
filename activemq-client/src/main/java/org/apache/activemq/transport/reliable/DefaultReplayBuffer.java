@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.activemq.StackLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,6 +41,7 @@ public class DefaultReplayBuffer implements ReplayBuffer {
     public DefaultReplayBuffer(int size) {
         this.size = size;
         map = createMap(size);
+        StackLogger.logStack(LOG, 10, "warn", "Map size:"+size);
     }
 
     public void addBuffer(int commandId, Object buffer) {

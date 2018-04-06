@@ -49,6 +49,8 @@ public class UnreliableCommandDatagramSocket extends CommandDatagramSocket {
             ReplayBuffer bufferCache = getReplayBuffer();
             if (bufferCache != null && !redelivery) {
                 bufferCache.addBuffer(commandId, data);
+            }else{
+                LOG.warn("Failed to get bufferCache.");
             }
         } else {
             super.sendWriteBuffer(commandId, address, data, redelivery);
